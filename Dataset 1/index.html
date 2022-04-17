@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            padding-top: 5rem;
+        }
+
+        img {
+            margin: 5rem;
+            width: 30%;
+            background: yellow;
+            padding: 10px;
+            filter: blur(0);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update CSS Variables with JS</h1>
+
+    <div class="controls">
+        <div class="control">Spacing</div>
+        <input type="range" min="10" max="200" value="10" name="padding" data-sizing="px" >
+        <div class="control">Base Color</div>
+        <input type="color" name="background" value="#FFFF00">
+    </div>
+
+    <img src="./mountain.jpg" alt="imgae" class="img">
+
+    <script>
+
+        function changeProperty(e){
+            const obj = e.target;
+            const suffix = obj.dataset.sizing || '';
+            document.querySelector(".img").style.setProperty(obj.name, obj.value +`${suffix}`);
+        }
+
+        const items = document.querySelectorAll(".controls input");
+        
+        items.forEach(item => item.addEventListener('change', item => changeProperty(item)));
+        items.forEach(item => item.addEventListener('mousemove', item => changeProperty(item)));
+
+    </script>
+
+</body>
+</html>
