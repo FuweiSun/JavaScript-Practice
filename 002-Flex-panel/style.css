@@ -1,0 +1,89 @@
+html {
+    box-sizing: border-box;
+    background: hsl(53, 70%, 44%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+}
+
+.parts {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+}
+
+.part {
+    background: rgb(201, 89, 245);
+    box-shadow: inset 0 0 0 5px rgba(96, 95, 95, 0.2);
+    /* box-sizing: inherit; */
+    color: rgb(237, 231, 231);
+    font-family: 'Amatic SC', cursive;
+    /* align-content: center; */
+    transition: font-size 0.2s,
+    flex 0.5s,
+    background 0.5s;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* height: 20vh; */
+    /* margin: 0; */
+}
+
+.part > * {
+    margin: 0;
+    width: 100%;
+    transition: transform .5s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.part > *:first-child { transform: translateY(-100%);}
+.active > *:first-child { transform: translateY(0);}
+.part > *:last-child { transform: translateY(100%);}
+.active > *:last-child { transform: translateY(0);}
+
+.part::before, .part::after {
+    margin: 0;
+    padding: 0;
+}
+
+.part p {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.part p:nth-child(2) {
+    font-size: 4em;
+}
+
+.active {
+    flex: 5;
+    font-size: 40px;
+}
+
+.part1 {
+    background-image: url(./background1.jpg);
+}
+.part2 {
+    background-image: url(./background2.jpg);
+}
+.part3 {
+    background-image: url(./background3.jpg);
+}
+.part4 {
+    background-image: url(./background4.jpg);
+}
+.part5 {
+    background-image: url(./background5.jpg);
+}
